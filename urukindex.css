@@ -1,0 +1,166 @@
+/* Wallpaper de fundo */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -10px;   /* empurra pra cima pra compensar o blur */
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: url('fundo02.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+/* Cabeçalho com brasão */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 30px 0; /* diminui o padding-top para subir */
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+/* Imagem do brasão */
+.header img {
+    height: 240px;
+    width: auto;
+}
+
+ /* Sidebar à esquerda */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5); /* fundo escuro translúcido */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* Itens da sidebar */
+.sidebar a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar a:hover {
+    color: #ffd700; /* destaque ao passar o mouse */
+    transform: scale(1.05);
+}
+
+/* Sidebar à direita */
+.sidebar-right {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5); /* mesmo fundo translúcido */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+/* Itens da sidebar direita */
+.sidebar-right a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-right a:hover {
+    color: #00ffff; /* cor diferente da esquerda para diferenciar */
+    transform: scale(1.05);
+}
+
+/* Bloco central com "Quem Somos" */
+.center-banner {
+    position: relative;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Texto decorativo, estilo banners laterais, sem interatividade */
+.center-banner div {
+    background: rgba(0, 0, 0, 0.5); /* fundo escuro translúcido */
+    color: #ffffff;
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif; /* igual às sidebars */
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-shadow: 2px 2px 6px #000;
+}
+
+/* Bloco descritivo abaixo do "Quem Somos" */
+.description-block {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-shadow: 1px 1px 3px #000;
+    z-index: 2;
+    position: relative;
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    /* Centralizar o cabeçalho */
+    .header img {
+        height: 160px;
+    }
+
+    /* Esconder ou mover as sidebars para o topo/bottom ou empilhar */
+    .sidebar,
+    .sidebar-right {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin: 10px 0;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    /* Ajustar tamanho da fonte nas sidebars */
+    .sidebar a,
+    .sidebar-right a {
+        font-size: 1.2rem;
+    }
+
+    /* Centralizar o banner e ajustar tamanho do texto */
+    .center-banner div {
+        font-size: 2rem;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    /* Ajustar largura do bloco descritivo */
+    .description-block {
+        padding: 20px;
+        margin: 20px 10px;
+        font-size: 1rem;
+    }
+}
